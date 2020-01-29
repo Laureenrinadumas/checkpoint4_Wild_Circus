@@ -16,4 +16,9 @@ class WildController extends AbstractController
             'controller_name' => 'WildController',
         ]);
     }
+
+    public function contentInfo()
+    {
+
+    }
 }

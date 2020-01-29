@@ -17,14 +17,17 @@
     {% include 'navbar.html.twig' %}
         <div class="logo-banner">
             <div >
-                <img id="logowc" src="https://www.freelogodesign.org/file/app/client/thumb/94cdab28-837a-4423-b205-0d5dda726b89_200x200.png?1559401344003" alt="logo-wild-circus">
+                <img id="logowc" src="{{asset('build/images/logo.png')}}" alt="logo-wild-circus">
             </div>
         </div>
     </div>
 </header>
-
+<div class="container">
 {% block body  %}
 {% endblock %}
+</div>
+ {% include 'footer.html.twig' %}
+
 
 
 {% block javascripts %}
