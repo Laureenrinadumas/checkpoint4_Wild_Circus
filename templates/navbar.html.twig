@@ -27,9 +27,21 @@
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <div class="d-flex justify-content-end text-white mr-2">
+            {% if app.user %}
+                <li class="nav-item nav-link active">
+                    {% trans with {'%username%': app.user.email} %}
+                        Hello_username
+                    {% endtrans %} !
+                </li>
+                <a class="nav-link text-dark text-decoration-none" href="{{ path('wild') }}">Mon compte</a>
+
+                <a class="nav-link text-dark text-decoration-none ml-4" href="{{ path('app_logout') }}">{{ 'account.logout'|trans }}</a>
+            {% else %}
+                <a class="nav-link text-dark text-decoration-none" href="{{ path('app_register') }}"> S'inscrire</a>
+
+                <a class="nav-link text-dark text-decoration-none" href="{{ path('app_login') }}">{{ 'account.login'|trans }}</a>
+            {% endif %}
+        </div>
     </div>
 </nav>

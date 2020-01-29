@@ -41,6 +41,11 @@ class Content
      */
     private $poster;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="contents")
+     */
+    private $category;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -102,6 +107,18 @@ class Content
     public function setPoster(?string $poster): self
     {
         $this->poster = $poster;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
