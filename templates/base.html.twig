@@ -1,12 +1,34 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title>{% block title %}Wild Circus{% endblock %}</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+    <link rel="icon" type="image/png" href="{{asset('build/images/favicon.png')}}">
+</head>
+
+<body>
+
+<header>
+    <div class="image-intro" style="background-image: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(245,10,10,0.3) 80%), url('https://cdn.pixabay.com/photo/2015/07/02/10/16/circus-828680_960_720.jpg');">
+    {% include 'navbar.html.twig' %}
+        <div class="logo-banner">
+            <div >
+                <img id="logowc" src="https://www.freelogodesign.org/file/app/client/thumb/94cdab28-837a-4423-b205-0d5dda726b89_200x200.png?1559401344003" alt="logo-wild-circus">
+            </div>
+        </div>
+    </div>
+</header>
+
+{% block body  %}
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+</body>
 </html>
