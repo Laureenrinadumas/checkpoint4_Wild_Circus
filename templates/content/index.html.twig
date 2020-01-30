@@ -11,8 +11,6 @@
                 <th>Id</th>
                 <th>Title</th>
                 <th>Content</th>
-                <th>Created_at</th>
-                <th>Update_at</th>
                 <th>Poster</th>
                 <th>actions</th>
             </tr>
@@ -23,8 +21,6 @@
                 <td>{{ content.id }}</td>
                 <td>{{ content.title }}</td>
                 <td>{{ content.content }}</td>
-                <td>{{ content.createdAt ? content.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ content.updateAt ? content.updateAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ content.poster }}</td>
                 <td>
                     <a href="{{ path('content_show', {'id': content.id}) }}">show</a>

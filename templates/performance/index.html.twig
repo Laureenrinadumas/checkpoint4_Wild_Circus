@@ -13,8 +13,6 @@
                 <th>Title</th>
                 <th>Description</th>
                 <th>Duration</th>
-                <th>Created_at</th>
-                <th>Update_at</th>
                 <th>Poster</th>
                 <th>actions</th>
             </tr>
@@ -27,8 +25,6 @@
                 <td>{{ performance.title }}</td>
                 <td>{{ performance.description }}</td>
                 <td>{{ performance.duration }}</td>
-                <td>{{ performance.createdAt ? performance.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ performance.updateAt ? performance.updateAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ performance.poster }}</td>
                 <td>
                     <a href="{{ path('performance_show', {'id': performance.id}) }}">show</a>

@@ -15,6 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ContentController extends AbstractController
 {
+
     /**
      * @Route("/", name="content_index", methods={"GET"})
      */

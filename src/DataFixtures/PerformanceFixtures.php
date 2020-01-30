@@ -53,7 +53,7 @@ class PerformanceFixtures extends Fixture
             $performance = new Performance();
             $performance->setName($faker->name);
             $performance->setTitle($faker->sentence(3));
-            $performance->setDescription($faker->sentence(100));
+            $performance->setDescription($faker->sentence(30));
             $performance->setDuration(self::DURATIONS[$i]['duration']);
             $performance->setPoster(self::DURATIONS[$i]['poster']);
             $manager->persist($performance);

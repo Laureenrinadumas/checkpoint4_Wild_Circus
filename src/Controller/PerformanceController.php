@@ -17,6 +17,8 @@ class PerformanceController extends AbstractController
 {
     /**
      * @Route("/", name="performance_index", methods={"GET"})
+     * @param PerformanceRepository $performanceRepository
+     * @return Response
      */
     public function index(PerformanceRepository $performanceRepository): Response
     {
@@ -27,6 +29,8 @@ class PerformanceController extends AbstractController
 
     /**
      * @Route("/new", name="performance_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -50,6 +54,8 @@ class PerformanceController extends AbstractController
 
     /**
      * @Route("/{id}", name="performance_show", methods={"GET"})
+     * @param Performance $performance
+     * @return Response
      */
     public function show(Performance $performance): Response
     {
@@ -60,6 +66,9 @@ class PerformanceController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="performance_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Performance $performance
+     * @return Response
      */
     public function edit(Request $request, Performance $performance): Response
     {
@@ -80,6 +89,9 @@ class PerformanceController extends AbstractController
 
     /**
      * @Route("/{id}", name="performance_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Performance $performance
+     * @return Response
      */
     public function delete(Request $request, Performance $performance): Response
     {

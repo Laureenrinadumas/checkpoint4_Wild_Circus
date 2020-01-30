@@ -1,0 +1,13 @@
+{% extends 'home.html.twig' %}
+{% block body %}
+    <div class="profil-user text-center">
+        <h1>Welcome {{ app.user.email }}</h1>
+        <p>Here is the profile page.</p>
+        <p>Find all our events in your favorite circus! Follow the news! We are waiting for you!</p>
+        <button class="btn btn-warning">
+            <a class="text-decoration-none link-button" href="{{ path('wild') }}">
+                Accueil
+            </a>
+        </button>
+    </div>
+{% endblock %}
