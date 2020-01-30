@@ -80,4 +80,5 @@ class Price
 
         return $this;
     }
+
 }
