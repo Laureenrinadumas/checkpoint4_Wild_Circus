@@ -21,64 +21,40 @@ class Price
     /**
      * @ORM\Column(type="integer")
      */
-    private $selling_price;
+    private $amount;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Customer", mappedBy="price")
+     * @ORM\Column(type="string", length=255)
      */
-    private $customers;
+    private $customer;
 
-    public function __construct()
-    {
-        $this->customers = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getSellingPrice(): ?int
+    public function getAmount(): ?int
     {
-        return $this->selling_price;
+        return $this->amount;
     }
 
-    public function setSellingPrice(int $selling_price): self
+    public function setAmount(int $amount): self
     {
-        $this->selling_price = $selling_price;
+        $this->amount = $amount;
 
         return $this;
     }
 
-    /**
-     * @return Collection|Customer[]
-     */
-    public function getCustomers(): Collection
+    public function getCustomer(): ?string
     {
-        return $this->customers;
+        return $this->customer;
     }
 
-    public function addCustomer(Customer $customer): self
+    public function setCustomer(string $customer): self
     {
-        if (!$this->customers->contains($customer)) {
-            $this->customers[] = $customer;
-            $customer->setPrice($this);
-        }
+        $this->customer = $customer;
 
         return $this;
     }
-
-    public function removeCustomer(Customer $customer): self
-    {
-        if ($this->customers->contains($customer)) {
-            $this->customers->removeElement($customer);
-            // set the owning side to null (unless already changed)
-            if ($customer->getPrice() === $this) {
-                $customer->setPrice(null);
-            }
-        }
-
-        return $this;
-    }
-
 }

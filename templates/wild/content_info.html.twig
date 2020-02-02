@@ -1,20 +1,20 @@
 {% extends 'base.html.twig' %}
 {% block body  %}
     <h1 class="mt-5">The Wild Circus</h1>
-<div class="row row-cols-1 row-cols-md-3 mt-5 mb-5">
+<div class="circle-three">
+<div class="row row-cols-1 row-cols-md-3">
     {% for content in contents %}
-        <div class="col mb-4">
-        <div class="card  h-100">
-            <img src="{{ content.poster }}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{ content.title }}</h5>
-                <p class="card-text">{{ content.content }}</p>
-                <a href="#" class="btn btn-primary  ">Show</a>
-            </div>
-        </div>
-        </div>
+            <article class="col oneline">
+                <div class="circle-in">
+                    <h3>{{ content.title }}</h3>
+                    <img class="w-25" src="{{ content.poster }}" alt="...">
+                    <p>{{ content.content }}</p>
+                </div>
+            </article>
 {% endfor %}
 </div>
+</div>
+
 {% endblock %}
 
 

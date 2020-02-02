@@ -24,7 +24,16 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/info", name="wild_info", methods={"GET"})
+     * @Route("/homepage", name="show_homepage")
+     * @return Response
+     */
+    public function showHomepage()
+    {
+        return $this->render('wild/homepage.html.twig');
+    }
+
+    /**
+     * @Route("/contents", name="show_content", methods={"GET"})
      * @param ContentRepository $contentRepository
      * @return Response
      */
@@ -38,7 +47,7 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/performs", name="wild_performs", methods={"GET"})
+     * @Route("/performs", name="show_performs", methods={"GET"})
      * @param PerformanceRepository $performanceRepository
      * @return Response
      */

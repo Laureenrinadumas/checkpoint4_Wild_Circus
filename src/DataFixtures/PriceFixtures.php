@@ -11,12 +11,31 @@ use Doctrine\Persistence\ObjectManager;
 class PriceFixtures extends Fixture
 {
     const PRICES = [
-        20,
-        10,
-        80,
-        8,
-        95,
+        [
+            'price' => 20,
+            'customer' => 'Adult'
 
+        ],
+        [
+            'price' =>  10,
+            'customer' => 'Children under 16',
+
+        ],
+        [
+            'price' =>80,
+            'customer' =>  'Group (more than 10 people)',
+
+        ],
+        [
+            'price' =>  8,
+            'customer' => 'Person with reduced mobility',
+
+        ],
+        [
+            'price' => 95,
+            'customer' => 'School',
+
+        ],
     ];
 
     /**
@@ -26,10 +45,11 @@ class PriceFixtures extends Fixture
      */
     public function load(ObjectManager $manager)
     {
-        foreach (self::PRICES as $key => $sellingPrice) {
+        for ($i=0 ; $i<5; $i++) {
+
             $price = new Price();
-            $price->setSellingPrice($sellingPrice);
-            $this->addReference('price_' . $key, $price);
+            $price->setAmount(self::PRICES[$i]['price']);
+            $price->setCustomer(self::PRICES[$i]['customer']);
             $manager->persist($price);
         }
         $manager->flush();
