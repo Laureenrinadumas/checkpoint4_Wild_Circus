@@ -1,0 +1,39 @@
+#prices {
+  padding-top: 20px;
+}
+
+.img-price {
+  width: 300px;
+  height: 400px;
+}
+
+.tab-img {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  align-items: center;
+  text-align: center;
+  margin-top: 100px;
+}
+
+/*--form--*/
+table {
+  position: center;
+  margin-left: 50px;
+  margin-right: 50px;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  border: thin solid #eda302;
+  width: 150px;
+}
+
+tr {
+  width: 100%;
+}
+
+.tht {
+  border: none;
+}

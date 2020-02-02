@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h2 id="prices">Prices</h2>
+
+<div class="tab-img">
+    <img class="img-price" src="https://cdn.pixabay.com/photo/2018/06/28/12/03/elephant-3503712_960_720.jpg" alt="elephant-behind-a-curtain">
+    <table class="mt-5 mb-5">
+        <thead>
+        <tr>
+            <th class="tht"></th>
+            {% for price in prices %}
+            <th >{{ price.customer }}</th>
+           {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th >Weekdays (not Wednesday)</th>
+            <td>15$</td>
+            <td>6.50$</td>
+            <td>75$</td>
+            <td>7$</td>
+            <td>70$</td>
+
+        </tr>
+        <tr>
+            <th>Weekend & Wednesday</th>
+            {% for price in prices %}
+            <td>{{ price.amount }}$</td>
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

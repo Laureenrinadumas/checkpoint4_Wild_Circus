@@ -6,6 +6,7 @@ namespace App\Controller;
 use App\Entity\Content;
 use App\Repository\ContentRepository;
 use App\Repository\PerformanceRepository;
+use App\Repository\PriceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -53,6 +54,18 @@ class WildController extends AbstractController
     {
         return $this->render('wild/performance_info.html.twig', [
             'performances' => $performanceRepository->findAll()
+        ]);
+    }
+
+    /**
+     * @Route("/prices", name="show_price", methods={"GET"})
+     * @param PriceRepository $priceRepository
+     * @return Response
+     */
+    public function showPrice(PriceRepository $priceRepository)
+    {
+        return $this->render('wild/price.html.twig', [
+            'prices' => $priceRepository->findAll()
         ]);
     }
 

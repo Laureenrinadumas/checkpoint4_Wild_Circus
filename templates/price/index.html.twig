@@ -9,15 +9,18 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Selling_price</th>
+                <th>price</th>
+                <th>customer</th>
                 <th>actions</th>
+
             </tr>
         </thead>
         <tbody>
         {% for price in prices %}
             <tr>
                 <td>{{ price.id }}</td>
-                <td>{{ price.sellingPrice }}</td>
+                <td>{{ price.amount }}</td>
+                <td>{{ price.customer }}</td>
                 <td>
                     <a href="{{ path('price_show', {'id': price.id}) }}">show</a>
                     <a href="{{ path('price_edit', {'id': price.id}) }}">edit</a>

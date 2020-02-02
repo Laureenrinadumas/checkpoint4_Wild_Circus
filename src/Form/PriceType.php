@@ -12,7 +12,8 @@ class PriceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('selling_price')
+            ->add('amount')
+            ->add('customer')
         ;
     }
 
