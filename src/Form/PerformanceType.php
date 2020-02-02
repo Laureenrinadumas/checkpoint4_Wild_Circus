@@ -16,8 +16,6 @@ class PerformanceType extends AbstractType
             ->add('title')
             ->add('description')
             ->add('duration')
-            ->add('created_at')
-            ->add('update_at')
             ->add('poster')
         ;
     }

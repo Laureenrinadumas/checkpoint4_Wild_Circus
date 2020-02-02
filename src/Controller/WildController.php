@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 
-use App\Entity\Content;
 use App\Repository\ContentRepository;
 use App\Repository\PerformanceRepository;
 use App\Repository\PriceRepository;
@@ -46,14 +45,14 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/performs", name="show_performs", methods={"GET"})
-     * @param PerformanceRepository $performanceRepository
+     * @Route ("/perfoms", name="show_performs", methods={"GET","POST"})
      * @return Response
      */
-    public function showPerformance(PerformanceRepository $performanceRepository)
+    public function showPerformance(PerformanceRepository $performanceRepository): Response
     {
+
         return $this->render('wild/performance_info.html.twig', [
-            'performances' => $performanceRepository->findAll()
+            'performances' => $performanceRepository->findAll(),
         ]);
     }
 

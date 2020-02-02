@@ -8,6 +8,8 @@ use App\Repository\PerformanceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -31,8 +33,9 @@ class PerformanceController extends AbstractController
      * @Route("/new", name="performance_new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
+     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
      */
-    public function new(Request $request): Response
+    public function new(Request $request, MailerInterface $mailer): Response
     {
         $performance = new Performance();
         $form = $this->createForm(PerformanceType::class, $performance);
@@ -42,6 +45,15 @@ class PerformanceController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($performance);
             $entityManager->flush();
+
+            $email = (new Email())
+                ->from($this->getParameter('mailer_from'))
+                ->to('laureen262@gmail.com')
+                ->subject('A new performance in our next event is coming!')
+                ->html($this->renderView('email/notification.html.twig',
+                    ['performance' => $performance]));
+
+            $mailer->send($email);
 
             return $this->redirectToRoute('performance_index');
         }

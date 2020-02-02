@@ -1,0 +1,25 @@
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Bubblegum+Sans|Raleway&display=swap');
+
+    body {
+        font-family: 'Raleway', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    h1 {
+        font-family: 'Pacifico', cursive;
+        color: #fec232;
+    }
+    img {
+        max-width: 400px;
+        margin: auto;
+    }
+</style>
+<h1>Hello !</h1>
+<p>The Wild Circus has just added a performance that you may like:</p>
+<h3>{{ performance.title }}</h3>
+<img src="{{ performance.poster }}" alt="program poster">
+<p>{{ performance.description }}</p>
+<a href="https://127.0.0.1:8000/perfoms">Visit the Wild circus</a>
