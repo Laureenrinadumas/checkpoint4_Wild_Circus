@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Comment;
-use Faker\Provider\ar_JO\Text;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -16,10 +15,10 @@ class CommentType extends AbstractType
     {
         $builder
             ->add('comment', TextType::class, [
-                'label' => 'Commentaire',
+                'label' => 'Comment',
             ])
             ->add('rate', IntegerType::class, [
-                'label' => 'Note',
+                'label' => 'Rate',
             ])
             ->add('performance', TextType::class, [
                 'label' => 'performance'

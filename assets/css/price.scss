@@ -24,16 +24,16 @@ table {
   border-collapse: collapse;
 }
 
-td,
-th {
-  border: thin solid #eda302;
-  width: 150px;
-}
-
-tr {
-  width: 100%;
-}
-
-.tht {
-  border: none;
+.price-choice {
+  td,
+  th {
+    border: thin solid #eda302;
+    width: 150px;
+  }
+  tr {
+    width: 100%;
+  }
+  .tht {
+    border: none;
+  }
 }

@@ -3,10 +3,13 @@
 namespace App\Controller;
 
 
+use App\Entity\Performance;
 use App\Repository\ContentRepository;
 use App\Repository\PerformanceRepository;
 use App\Repository\PriceRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -48,11 +51,18 @@ class WildController extends AbstractController
      * @Route ("/perfoms", name="show_performs", methods={"GET","POST"})
      * @return Response
      */
-    public function showPerformance(PerformanceRepository $performanceRepository): Response
+    public function showPerformance(PerformanceRepository $performanceRepository, PaginatorInterface $paginator, Request $request): Response
     {
+        $data = $this->getDoctrine()->getRepository(Performance::class)->findAll([]);
+
+        $performances = $paginator->paginate(
+            $data,
+            $request->query->getInt('page', 1),
+            4
+        );
 
         return $this->render('wild/performance_info.html.twig', [
-            'performances' => $performanceRepository->findAll(),
+            'performances' => $performances,
         ]);
     }
 

@@ -4,7 +4,8 @@
 
 {% block body %}
     <h1>Performance index</h1>
-
+    <div class="container">
+    <a href="{{ path('performance_new') }}">Create new</a>
     <table class="table">
         <thead>
             <tr>
@@ -12,9 +13,7 @@
                 <th>Name</th>
                 <th>Title</th>
                 <th>Description</th>
-                <th>Duration</th>
-                <th>Poster</th>
-                <th>actions</th>
+                <th >actions</th>
             </tr>
         </thead>
         <tbody>
@@ -24,8 +23,6 @@
                 <td>{{ performance.name }}</td>
                 <td>{{ performance.title }}</td>
                 <td>{{ performance.description }}</td>
-                <td>{{ performance.duration }}</td>
-                <td>{{ performance.poster }}</td>
                 <td>
                     <a href="{{ path('performance_show', {'id': performance.id}) }}">show</a>
                     <a href="{{ path('performance_edit', {'id': performance.id}) }}">edit</a>
@@ -38,6 +35,5 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('performance_new') }}">Create new</a>
+    </div>
 {% endblock %}

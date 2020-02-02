@@ -8,17 +8,21 @@
         <div class="card m-5" >
             <div class="row no-gutters">
                 <div class="col-md-4">
-                    <img src="{{ performance.poster }}" class="card-img w-100" alt="...">
+                    <img src="{{ performance.poster }}" class="card-img w-100 h-100" alt="...">
                 </div>
                 <div class="col-md-8">
-                    <div class="card-body">
+                    <div class="card-body ">
                         <h5 class="card-title">{{ performance.title }}</h5>
-                        <h6 class="card-text">{{ performance.duration }}h</h6>
-                        <p class="card-text">{{ performance.description }}</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <h6 class="card-text text-dark">{{ performance.duration }}h</h6>
+                        <p class="card-text text-dark">{{ performance.description }}</p>
+                        <p class="card-text text-dark"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <button class="btn btn-sm btn-warning ">Booking</button>
                     </div>
                 </div>
             </div>
         </div>
+
     {% endfor %}
+
+  {{ knp_pagination_render(performances) }}
 {% endblock %}
