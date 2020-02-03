@@ -69,7 +69,7 @@ class WildController extends AbstractController
     /**
      * @Route("/prices", name="show_price", methods={"GET"})
      * @param PriceRepository $priceRepository
-     * @return Response
+     * @return string
      */
     public function showPrice(PriceRepository $priceRepository)
     {

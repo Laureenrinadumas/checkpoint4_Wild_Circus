@@ -91,4 +91,5 @@ class PriceController extends AbstractController
 
         return $this->redirectToRoute('price_index');
     }
+
 }
