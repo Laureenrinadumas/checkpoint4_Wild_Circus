@@ -18,6 +18,11 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{ path('show_price') }}">Prices<span class="sr-only">(current)</span></a>
             </li>
+            {% if is_granted('ROLE_ADMIN')or is_granted('ROLE_SUBSCRIBER')  %}
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('show_game') }}">Game<span class="sr-only">(current)</span></a>
+            </li>
+            {% endif %}
 
             {% if is_granted('ROLE_ADMIN') %}
             <li class="nav-item dropdown">
@@ -45,7 +50,6 @@
                         Hello_username
                     {% endtrans %} !
                 </li>
-                <a class="nav-link text-dark text-decoration-none" href="{{ path('wild_profile') }}">My account</a>
 
                 <a class="nav-link text-dark text-decoration-none ml-4" href="{{ path('app_logout') }}">{{ 'account.logout'|trans }}</a>
             {% else %}

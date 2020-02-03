@@ -4,12 +4,13 @@
 
 {% block body %}
     <h1>Register</h1>
+    <div class="text-white">
     {% form_theme registrationForm 'bootstrap_4_layout.html.twig' %}
     {{ form_start(registrationForm) }}
     {{ form_row(registrationForm.email) }}
     {{ form_row(registrationForm.plainPassword) }}
     {{ form_row(registrationForm.agreeTerms) }}
-
+    </div>
     <button class="btn btn-warning text-dark">Register</button>
     {{ form_end(registrationForm) }}
 {% endblock %}

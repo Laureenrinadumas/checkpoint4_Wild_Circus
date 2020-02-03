@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Wild Game</h1>
+    <h5 class="text-center">win your seats for the event of your choice</h5>
+    <div class="logo-game">
+        <div >
+            <img id="logowc" src="{{asset('build/images/logo.png')}}" alt="logo-wild-circus">
+        </div>
+    </div>
+    <div class="game text-center">
+    <div class="form-group">
+    <form action="" method="get">
+        <label>
+            <input class="form-control" type="text" name="numb"/>
+        </label>
+        <input class="btn btn-warning mb-2" type="submit" value="Try !"/>
+    </form>
+    </div>
+    </div>
+    <p class="text-center">{{ result }}</p>
+{% endblock %}
